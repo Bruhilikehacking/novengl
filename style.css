@@ -1,3 +1,60 @@
+:root{
+  --bg:#f7f8fb;
+  --card:#ffffff;
+  --accent:#2b9aa3;
+  --text:#1b1b1f;
+  --muted:#6b6f76;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.site-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 18px;
+  background:linear-gradient(90deg,#fff,#f1f6f8);
+  border-bottom:1px solid #e6e9ee;
+}
+.brand{font-weight:700;color:var(--accent);font-size:1.2rem}
+.nav .nav-btn{
+  background:transparent;border:0;padding:8px 10px;margin-left:6px;cursor:pointer;color:var(--muted)
+}
+.nav .nav-btn.active{color:var(--text);font-weight:600}
+main{flex:1;padding:18px;max-width:980px;margin:0 auto;width:100%}
+.view{background:transparent}
+.hidden{display:none}
+.hint{color:var(--muted);font-size:0.9rem;margin-top:0;margin-bottom:10px}
+
+.card-area{display:flex;flex-direction:column;align-items:center;gap:12px}
+.card{
+  width:320px;height:180px;background:var(--card);border-radius:10px;
+  box-shadow:0 6px 18px rgba(20,30,40,0.08);
+  display:flex;align-items:center;justify-content:center;
+  padding:18px;text-align:center;position:relative;
+}
+.card-face{font-size:1.4rem}
+.card-face.hidden{display:none}
+.card-controls{display:flex;gap:8px}
+button{
+  background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer
+}
+button[disabled]{opacity:0.5;cursor:default}
+.progress{margin-top:8px;color:var(--muted)}
+
+#choices{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.choice-btn{
+  background:#fff;color:var(--text);border:1px solid #e2e6ea;
+  padding:10px;border-radius:8px;text-align:left
+}
+
 .toolbar{
   display:flex;
   align-items:center;
@@ -26,3 +83,40 @@
   box-shadow:0 2px 6px rgba(20,30,40,0.04);
 }
 .lesson strong{display:block;margin-bottom:4px}
+
+#game-area{
+  background:#fff;
+  border-radius:10px;
+  padding:12px;
+  box-shadow:0 2px 6px rgba(20,30,40,0.06);
+  max-width:420px;
+}
+#game-timer,#game-score{font-weight:600;margin-bottom:4px}
+#game-prompt{margin:10px 0;font-size:1.2rem}
+#game-input{
+  width:100%;
+  padding:8px;
+  border-radius:8px;
+  border:1px solid #d0d4da;
+  margin-bottom:8px;
+}
+#game-feedback{margin-top:6px;color:var(--muted);min-height:1.2em}
+
+.settings-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+footer.site-footer{
+  padding:12px;
+  text-align:center;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+@media (max-width:520px){
+  .card{width:92%}
+}
