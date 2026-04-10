@@ -1,27 +1,107 @@
-<main id="app">
-  <section id="learn" class="view">
-    <div class="toolbar">
-      <h3>Lessons</h3>
-      <label class="toolbar-item">
-        <span>Category:</span>
-        <select id="category-select">
-          <option value="all">All</option>
-          <option value="core">Core</option>
-          <option value="people">People</option>
-          <option value="home">Home</option>
-          <option value="food">Food</option>
-          <option value="travel">Travel</option>
-          <option value="time">Time</option>
-          <option value="emotions">Emotions</option>
-          <option value="nature">Nature</option>
-          <option value="school_work">School & Work</option>
-          <option value="verbs_actions">Verbs — Actions</option>
-          <option value="verbs_speech">Verbs — Speech & Thought</option>
-          <option value="adjectives_basic">Adjectives — Basic</option>
-          <option value="phrases_common">Phrases — Common</option>
-        </select>
-      </label>
-    </div>
-    <div id="lessons"></div>
-  </section>
-  <!-- rest of sections unchanged -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Novengl Trainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">Novengl Trainer</div>
+    <nav class="nav">
+      <button data-view="learn" class="nav-btn active">Learn</button>
+      <button data-view="flashcards" class="nav-btn">Flashcards</button>
+      <button data-view="quiz" class="nav-btn">Quiz</button>
+      <button data-view="game" class="nav-btn">Minigame</button>
+      <button data-view="settings" class="nav-btn">Settings</button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <section id="learn" class="view">
+      <div class="toolbar">
+        <h3>Lessons</h3>
+        <label class="toolbar-item">
+          <span>Category:</span>
+          <select id="category-select">
+            <option value="all">All</option>
+            <option value="core">Core</option>
+            <option value="people">People</option>
+            <option value="home">Home</option>
+            <option value="food">Food</option>
+            <option value="travel">Travel</option>
+            <option value="time">Time</option>
+            <option value="emotions">Emotions</option>
+            <option value="nature">Nature</option>
+            <option value="school_work">School & Work</option>
+            <option value="verbs_actions">Verbs — Actions</option>
+            <option value="verbs_speech">Verbs — Speech & Thought</option>
+            <option value="adjectives_basic">Adjectives — Basic</option>
+            <option value="phrases_common">Phrases — Common</option>
+          </select>
+        </label>
+      </div>
+      <div id="lessons"></div>
+    </section>
+
+    <section id="flashcards" class="view hidden">
+      <h3>Flashcards</h3>
+      <p class="hint">Front: Novengl • Back: English • Category respects the selector in Learn.</p>
+      <div class="card-area">
+        <div id="card" class="card">
+          <div id="card-front" class="card-face"></div>
+          <div id="card-back" class="card-face hidden"></div>
+        </div>
+        <div class="card-controls">
+          <button id="flip">Flip</button>
+          <button id="again">Again</button>
+          <button id="known">Known</button>
+        </div>
+        <div id="fc-progress" class="progress"></div>
+      </div>
+    </section>
+
+    <section id="quiz" class="view hidden">
+      <h3>Quiz</h3>
+      <p class="hint">Questions are drawn from the active category.</p>
+      <div id="quiz-area">
+        <div id="question"></div>
+        <div id="choices"></div>
+        <div id="quiz-result"></div>
+        <button id="next-question">Next</button>
+      </div>
+    </section>
+
+    <section id="game" class="view hidden">
+      <h3>Minigame — Word Rush</h3>
+      <p class="hint">Type the correct Novengl word for the English prompt. 60 seconds, as many as you can.</p>
+      <div id="game-area">
+        <div id="game-timer">Time: 60</div>
+        <div id="game-score">Score: 0</div>
+        <div id="game-prompt"></div>
+        <input id="game-input" type="text" placeholder="Type Novengl here..." autocomplete="off" />
+        <button id="game-start">Start / Restart</button>
+        <div id="game-feedback"></div>
+      </div>
+    </section>
+
+    <section id="settings" class="view hidden">
+      <h3>Settings</h3>
+      <label><input type="checkbox" id="enable-audio" /> Enable audio playback (where used)</label>
+      <div class="settings-actions">
+        <button id="export-data">Export CSV</button>
+        <input id="import-file" type="file" accept=".csv" />
+        <button id="reset-data">Reset Progress</button>
+      </div>
+      <div id="status"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Novengl Trainer • Local-only progress • GitHub Pages ready</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
